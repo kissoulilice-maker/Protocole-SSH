@@ -2,7 +2,7 @@
 
 ## 1. Présentation
 
-SSH signifie **Secure Shell**.
+SSH signifie **Secure SHell**.
 
 Il permet de se connecter à un serveur distant de manière sécurisée.
 
