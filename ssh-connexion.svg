@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Fonctionnement d'une connexion SSH</title>
+  <desc id="desc">Schéma du client SSH, du serveur SSH, de la négociation cryptographique, de l'authentification et des résultats possibles.</desc>
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#059669"/></marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#172033} .heading{font-size:27px;font-weight:700} .sub{font-size:17px;fill:#475569} .stepTitle{font-size:19px;font-weight:700} .body{font-size:16px} .small{font-size:14px;fill:#475569} .panel{stroke-width:2.2} .step{stroke-width:1.8}
+    </style>
+  </defs>
+  <rect width="1200" height="900" fill="#f8fafc"/>
+  <rect x="30" y="24" width="1140" height="88" rx="18" fill="#12345a"/>
+  <text x="600" y="60" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Fonctionnement d'une connexion SSH</text>
+  <text x="600" y="88" text-anchor="middle" font-size="17" fill="#e2e8f0">Échanges entre le client et le serveur distant</text>
+
+  <!-- Client panel -->
+  <rect x="30" y="140" width="285" height="540" rx="18" fill="#eaf3ff" stroke="#3b82f6" class="panel"/>
+  <text x="172" y="178" text-anchor="middle" class="heading" fill="#1d4ed8">CLIENT SSH</text>
+  <rect x="111" y="202" width="122" height="77" rx="7" fill="#1e293b"/>
+  <rect x="118" y="209" width="108" height="62" rx="3" fill="#93c5fd"/>
+  <path d="M95 282 H249 L238 294 H106 Z" fill="#64748b" stroke="#334155" stroke-width="2"/>
+  <text x="172" y="324" text-anchor="middle" class="body">Ordinateur de l'utilisateur</text>
+  <line x1="52" y1="346" x2="293" y2="346" stroke="#93c5fd" stroke-dasharray="5 5"/>
+  <text x="55" y="378" class="stepTitle" fill="#1e40af">Clés utilisateur</text>
+  <circle cx="83" cy="424" r="23" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <path d="M75 426 L91 410 Q98 404 104 411 Q110 418 103 424 L98 429 L93 425 L88 430 L92 434 L86 440 L81 435 L75 441 L69 435 Z" fill="#ef4444" stroke="#991b1b" stroke-width="1.5"/>
+  <text x="122" y="419" class="stepTitle">Clé privée</text>
+  <text x="122" y="442" class="small">Gardée secrète</text>
+  <text x="122" y="461" class="small">sur le client</text>
+  <circle cx="83" cy="512" r="23" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <path d="M75 514 L91 498 Q98 492 104 499 Q110 506 103 512 L98 517 L93 513 L88 518 L92 522 L86 528 L81 523 L75 529 L69 523 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="122" y="507" class="stepTitle">Clé publique</text>
+  <text x="122" y="530" class="small">Copiée sur le serveur</text>
+  <text x="122" y="549" class="small">dans authorized_keys</text>
+  <rect x="52" y="590" width="241" height="62" rx="10" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="172" y="615" text-anchor="middle" class="body" font-weight="700">Commande de connexion</text>
+  <text x="172" y="638" text-anchor="middle" font-size="14" font-family="monospace">ssh utilisateur@serveur</text>
+
+  <!-- Server panel -->
+  <rect x="885" y="140" width="285" height="540" rx="18" fill="#e8f8ef" stroke="#10b981" class="panel"/>
+  <text x="1027" y="178" text-anchor="middle" class="heading" fill="#047857">SERVEUR SSH</text>
+  <rect x="965" y="205" width="125" height="35" rx="7" fill="#334155"/>
+  <rect x="965" y="247" width="125" height="35" rx="7" fill="#334155"/>
+  <rect x="965" y="289" width="125" height="35" rx="7" fill="#334155"/>
+  <circle cx="1074" cy="222" r="5" fill="#4ade80"/><circle cx="1074" cy="264" r="5" fill="#4ade80"/><circle cx="1074" cy="306" r="5" fill="#4ade80"/>
+  <text x="1027" y="354" text-anchor="middle" class="body">Service sshd</text>
+  <text x="1027" y="376" text-anchor="middle" class="small">Port TCP 22 par défaut</text>
+  <line x1="907" y1="394" x2="1148" y2="394" stroke="#86efac" stroke-dasharray="5 5"/>
+  <text x="910" y="425" class="stepTitle" fill="#047857">Identité du serveur</text>
+  <rect x="910" y="441" width="235" height="65" rx="10" fill="#ffffff" stroke="#a7f3d0"/>
+  <text x="1027" y="466" text-anchor="middle" class="body" font-weight="700">Clé privée d'hôte</text>
+  <text x="1027" y="488" text-anchor="middle" class="small">Conservée sur le serveur</text>
+  <rect x="910" y="519" width="235" height="65" rx="10" fill="#ffffff" stroke="#a7f3d0"/>
+  <text x="1027" y="544" text-anchor="middle" class="body" font-weight="700">Clé publique d'hôte</text>
+  <text x="1027" y="566" text-anchor="middle" class="small">Vérifiée par le client</text>
+  <rect x="910" y="597" width="235" height="55" rx="10" fill="#ffffff" stroke="#a7f3d0"/>
+  <text x="1027" y="620" text-anchor="middle" class="body" font-weight="700">authorized_keys</text>
+  <text x="1027" y="640" text-anchor="middle" class="small">Clés publiques des utilisateurs</text>
+
+  <!-- Sequence steps -->
+  <rect x="345" y="145" width="510" height="69" rx="12" fill="#fff7ed" stroke="#fdba74" class="step"/>
+  <circle cx="376" cy="179" r="20" fill="#f97316"/><text x="376" y="186" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">1</text>
+  <text x="408" y="173" class="stepTitle">Demande de connexion</text><text x="408" y="196" class="body">Le client contacte le serveur sur TCP 22.</text>
+  <path d="M315 178 H345 M855 178 H885" stroke="#f97316" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+
+  <rect x="345" y="228" width="510" height="69" rx="12" fill="#fefce8" stroke="#fde047" class="step"/>
+  <circle cx="376" cy="262" r="20" fill="#eab308"/><text x="376" y="269" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">2</text>
+  <text x="408" y="256" class="stepTitle">Vérification du serveur</text><text x="408" y="279" class="body">Le client contrôle l'empreinte de la clé d'hôte.</text>
+  <path d="M885 262 H855 M345 262 H315" stroke="#ca8a04" stroke-width="2.5" fill="none" marker-end="url(#arrowPurple)"/>
+
+  <rect x="345" y="311" width="510" height="90" rx="12" fill="#f3e8ff" stroke="#c084fc" class="step"/>
+  <circle cx="376" cy="356" r="20" fill="#7c3aed"/><text x="376" y="363" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">3</text>
+  <text x="408" y="343" class="stepTitle">Négociation cryptographique</text>
+  <text x="408" y="367" class="body">Choix des algorithmes et échange de clés.</text>
+  <text x="408" y="387" class="small">Un secret partagé permet de protéger la session.</text>
+  <path d="M315 356 H345 M855 356 H885" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowPurple)"/>
+
+  <rect x="345" y="415" width="510" height="90" rx="12" fill="#eff6ff" stroke="#93c5fd" class="step"/>
+  <circle cx="376" cy="460" r="20" fill="#2563eb"/><text x="376" y="467" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">4</text>
+  <text x="408" y="447" class="stepTitle">Authentification du client</text>
+  <text x="408" y="471" class="body">Mot de passe ou preuve avec la clé privée.</text>
+  <text x="408" y="491" class="small">La clé privée n'est jamais envoyée au serveur.</text>
+  <path d="M315 460 H345 M855 460 H885" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+
+  <rect x="345" y="519" width="510" height="69" rx="12" fill="#ecfdf5" stroke="#6ee7b7" class="step"/>
+  <circle cx="376" cy="553" r="20" fill="#059669"/><text x="376" y="560" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">5</text>
+  <text x="408" y="547" class="stepTitle">Autorisation</text><text x="408" y="570" class="body">Le serveur vérifie le compte et les droits d'accès.</text>
+  <path d="M855 553 H885" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+
+  <!-- Outcomes -->
+  <rect x="45" y="710" width="535" height="145" rx="16" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <circle cx="82" cy="749" r="20" fill="#10b981"/><path d="M72 749 l7 7 14 -16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="115" y="755" font-size="22" font-weight="700" fill="#047857">Connexion réussie</text>
+  <text x="75" y="791" class="body">• Ouverture d'une session distante</text><text x="75" y="817" class="body">• Exécution de commandes et transferts</text><text x="75" y="841" class="body">• Communications chiffrées</text>
+
+  <rect x="620" y="710" width="535" height="145" rx="16" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+  <circle cx="657" cy="749" r="20" fill="#dc2626"/><path d="M649 741 l16 16 M665 741 l-16 16" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <text x="690" y="755" font-size="22" font-weight="700" fill="#b91c1c">Connexion refusée</text>
+  <text x="650" y="791" class="body">• Authentification invalide</text><text x="650" y="817" class="body">• Clé non autorisée ou compte bloqué</text><text x="650" y="841" class="body">• Session non ouverte</text>
+  <text x="600" y="885" text-anchor="middle" class="small">Schéma simplifié — la négociation et les vérifications suivent le protocole SSH.</text>
+</svg>
